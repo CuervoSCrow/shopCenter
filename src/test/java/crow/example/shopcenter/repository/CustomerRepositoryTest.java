@@ -35,9 +35,8 @@ class CustomerRepositoryTest{
                 .build();
 
         Customer customer = Customer.builder()
-                .firstName("Maria")
-                .lastName("Garcia")
-                .email("mariagarcia@gmail.com")
+                .firstName("Alejandra")
+                .email("alejandra@gmail.com")
                 .address(address)
                 .build();
 
@@ -58,10 +57,38 @@ class CustomerRepositoryTest{
 
     @Test
     public void findByFirstNameIgnoreCaseContainingTest() {
-        Customer customer = customerRepository
-                .findByFirstNameIgnoreCaseContaining("ua")
-                .get();
-        System.out.println("customer = " + customer);
+        List<Customer> customerList  = customerRepository
+                .findByFirstNameIgnoreCaseContaining("a");
+        for (Customer customer : customerList) {
+            System.out.println("customer = " + customer);
+        }
+    }
+
+    @Test
+    public void findByLastNameIgnoreCaseContainingTest() {
+        List<Customer> customerList  = customerRepository
+                .findByLastNameIgnoreCaseContaining("vidal");
+        for (Customer customer : customerList) {
+            System.out.println("customer = " + customer);
+        }
+    }
+
+    @Test
+    public void findByLastNameNotNullTest() {
+        List<Customer> customerList  = customerRepository
+                .findByLastNameNotNull();
+        for (Customer customer : customerList) {
+            System.out.println("customer = " + customer);
+        }
+    }
+
+    @Test
+    public void findByCustomerAddressCityIgnoreCaseContainingTest() {
+        List<Customer> customerList  = customerRepository
+                .findByAddress_CityIgnoreCaseContaining("mad");
+        for (Customer customer : customerList) {
+            System.out.println("customer = " + customer);
+        }
     }
 
     @Test
@@ -69,5 +96,7 @@ class CustomerRepositoryTest{
         List<Customer> customers = customerRepository.findAll();
         customers.forEach(System.out::println);
     }
+
+
 
 }

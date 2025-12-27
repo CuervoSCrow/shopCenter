@@ -1,5 +1,6 @@
 package crow.example.shopcenter.repository;
 
+import crow.example.shopcenter.entity.Address;
 import crow.example.shopcenter.entity.Customer;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,24 @@ class CustomerRepositoryTest{
                  .email("juansanz@crow.com")
                     .build();
          customerRepository.save(customer);
+    }
+
+    @Test
+    public void saveCustomerWithAddressEmbeddedTest() {
+        Address address = Address.builder()
+                .city("Madrid")
+                .mainStreet("Calle Mayor, 1")
+                .secondaryStreet("Calle Minor, 2")
+                .build();
+
+        Customer customer = Customer.builder()
+                .firstName("Maria")
+                .lastName("Garcia")
+                .email("mariagarcia@gmail.com")
+                .address(address)
+                .build();
+
+        customerRepository.save(customer);
     }
 
     @Test

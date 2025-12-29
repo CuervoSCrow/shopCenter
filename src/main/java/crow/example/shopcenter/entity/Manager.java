@@ -28,5 +28,12 @@ public class Manager {
     private String firstName;
     private String lastName;
 
+    @OneToOne(
+            mappedBy = "manager",
+            cascade = CascadeType.PERSIST,
+            fetch = FetchType.EAGER
+    )
+    private Local local;
+
 
 }

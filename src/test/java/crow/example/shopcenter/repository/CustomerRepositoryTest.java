@@ -117,4 +117,11 @@ class CustomerRepositoryTest{
                 .getCustomerByEmailAddressNative("vidalcuervo@gmail.com");
         System.out.println("customer = " + customer);
     }
+
+    @Test
+    public void updateCustomerNameByEmailTest() {
+        customerRepository.updateCustomerNameByEmail(
+                "Maximiliano",
+                "maxitovidal@gmail.com");
+    }
 }

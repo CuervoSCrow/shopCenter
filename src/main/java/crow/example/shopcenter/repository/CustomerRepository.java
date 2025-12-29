@@ -24,4 +24,9 @@ public interface CustomerRepository
     @Query("SELECT c.firstName FROM Customer c WHERE c.email = :email")
     String getCustomerFirstNameByEmailAddress(String email);
 
+    @Query(
+            value = "SELECT * FROM tbl_customers WHERE email_address = :email",
+            nativeQuery = true)
+    Customer getCustomerByEmailAddressNative(String email);
+
 }

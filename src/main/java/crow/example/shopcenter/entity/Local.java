@@ -1,16 +1,14 @@
 package crow.example.shopcenter.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+//@ToString(exclude = "manager")
 public class Local {
     @Id
     @SequenceGenerator(
@@ -27,7 +25,10 @@ public class Local {
     private String name;
     private String floor;
 
-    @OneToOne
+    @OneToOne(
+            cascade = CascadeType.PERSIST,
+            fetch = FetchType.EAGER
+    )
     @JoinColumn(
             name = "manager_id",
             referencedColumnName = "managerId"

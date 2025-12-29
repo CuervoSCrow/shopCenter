@@ -61,7 +61,7 @@ class LocalRepositoryTest {
                         .name("Cinema")
                         .floor("Third Floor")
                         .manager(manager)
-                        .orderList(List.of(order, order2))
+//                        .orderList(List.of(order, order2))
                         .build();
 
         localRepository.save(local);
@@ -70,13 +70,8 @@ class LocalRepositoryTest {
     @Test
     public void findAllLocalsWithOrdersTest(){
         List<Local> locals = localRepository.findAll();
-        for(Local local : locals){
-            System.out.println("local = " + local);
-            System.out.println("Orders:");
-            for(Order order : local.getOrderList()){
-                System.out.println("\t" + order);
-            }
-        }
+
+
     }
 
 }

@@ -97,6 +97,17 @@ class CustomerRepositoryTest{
         customers.forEach(System.out::println);
     }
 
+    @Test
+    public void getCustomerByEmailAddressTest() {
+        Customer customer = customerRepository
+                .getCustomerByEmailAddress("vidalcuervo@gmail.com");
+        System.out.println("customer = " + customer);
+    }
 
-
+    @Test
+    public void getCustomerFirstNameByEmailAddressTest() {
+        String firstName = customerRepository
+                .getCustomerFirstNameByEmailAddress("vidalcuervo@gmail.com");
+        System.out.println("firstName = " + firstName);
+    }
 }

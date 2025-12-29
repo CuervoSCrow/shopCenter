@@ -8,7 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-//@ToString(exclude = "manager")
+@ToString(exclude = "manager")
 public class Local {
     @Id
     @SequenceGenerator(

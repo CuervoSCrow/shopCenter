@@ -27,5 +27,15 @@ public class Order {
     private String description;
     private double price;
 
+    @ManyToOne(
+            cascade = CascadeType.ALL//,
+//            fetch = FetchType.EAGER
+    )
+    @JoinColumn(
+            name = "local_id",
+            referencedColumnName = "localId"
+    )
+    private Local local;
+
 
 }

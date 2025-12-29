@@ -110,4 +110,11 @@ class CustomerRepositoryTest{
                 .getCustomerFirstNameByEmailAddress("vidalcuervo@gmail.com");
         System.out.println("firstName = " + firstName);
     }
+
+    @Test
+    public void getCustomerByEmailAddressNativeTest() {
+        Customer customer = customerRepository
+                .getCustomerByEmailAddressNative("vidalcuervo@gmail.com");
+        System.out.println("customer = " + customer);
+    }
 }
